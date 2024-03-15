@@ -11,7 +11,7 @@ class Solution(object):
         weakest_rows_indices = []
         weakest_rows_indices.append(0)
 
-        rows_and_soldiers = {}
+        rows_and_soldiers = []
 
         if k == 1:
             return weakest_rows_indices
@@ -19,10 +19,15 @@ class Solution(object):
         if len(mat) == 1:
             return weakest_rows_indices
 
-        rows_and_soldiers[0] = first_soldiers
+        rows_and_soldiers[0] = (0, first_soldiers)
 
         second = mat[1]
         second_soldiers = sum(second)
-
-        for k, v in rows_and_soldiers.items():
-            
+        
+        for i, member in enumerate(rows_and_soldiers):
+            if member[1] > second_soldiers:
+                if len(rows_and_soldiers) < k:
+                    rows_and_soldiers.insert(i, (1, second_soldiers))
+        else:
+            rows_and_soldiers.append((1, second_soldiers))
+        
