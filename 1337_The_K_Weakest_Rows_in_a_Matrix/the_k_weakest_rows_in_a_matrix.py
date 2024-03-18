@@ -15,3 +15,7 @@ class Solution(object):
                     break
             else:
                 rows_and_soldiers.append((i, soldiers))
+            if len(rows_and_soldiers) > k:
+                rows_and_soldiers.pop(-1)
+        
+        return [i for i, _ in rows_and_soldiers]
