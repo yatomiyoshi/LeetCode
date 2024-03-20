@@ -5,15 +5,18 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+    answer = []
     def inorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        if not root.left:
-            pass
+        self.search_node(root)
+        return self.answer
 
-        yield root.val
-
-        if not root.right:
-            pass 
+    def search_node(self, node):
+        if not node.left:
+            self.search_node(node.left)
+        self.answer.append(node.value)
+        if not node.right:
+            self.search_node(node.right)
