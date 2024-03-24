@@ -15,8 +15,9 @@ class Solution(object):
         return self.answer
 
     def search_node(self, node):
-        if not node.left:
-            self.search_node(node.left)
-        self.answer.append(node.value)
-        if not node.right:
-            self.search_node(node.right)
+        if node is not None:
+            if node.left:
+                self.search_node(node.left)
+            self.answer.append(node.val)
+            if node.right:
+                self.search_node(node.right)
