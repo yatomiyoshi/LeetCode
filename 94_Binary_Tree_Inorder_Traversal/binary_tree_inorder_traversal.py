@@ -5,7 +5,9 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    answer = []
+    def __init__(self):
+        self.answer = []
+
     def inorderTraversal(self, root):
         """
         :type root: TreeNode
