@@ -26,11 +26,13 @@ class Solution(object):
             return False
         if right_node.left and not left_node.right:
             return False
-        if not right_node.left and not left_node.right:
+        if not right_node.left and left_node.right:
             return False
         if right_node.right and not left_node.left:
             return False
         if not right_node.right and left_node.left:
             return False
-        self.check(right_node.left, left_node.right)
-        self.check(right_node.right, left_node.left)
+        if not right_node.right and not left_node.left:
+            self.check(right_node.right, left_node.left)
+        if not right_node.left and not left_node.right:
+            self.check(right_node.left, left_node.right)
