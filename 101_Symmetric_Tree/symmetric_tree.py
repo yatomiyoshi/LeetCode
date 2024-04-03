@@ -32,8 +32,8 @@ class Solution(object):
             return False
         if not left_node.right and right_node.left:
             return False
-        if not right_node.right and not left_node.left:
-            self.check(right_node.right, left_node.left)
-        if not right_node.left and not left_node.right:
-            self.check(right_node.left, left_node.right)
+        if left_node.right and right_node.left:
+            self.check(left_node.right, right_node.left)
+        if left_node.left and right_node.right:
+            self.check(left_node.left, right_node.right)
         return True
