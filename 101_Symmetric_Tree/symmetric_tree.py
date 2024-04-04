@@ -10,6 +10,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+        if not root:
+            return True
         if not root.left and not root.right:
             return True
         if root.left and not root.right:
