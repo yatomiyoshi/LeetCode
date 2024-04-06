@@ -10,4 +10,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        
+        pass
+
+    def checkDepth(self, node):
+        pass
