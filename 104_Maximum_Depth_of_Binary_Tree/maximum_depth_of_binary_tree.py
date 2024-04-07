@@ -10,7 +10,18 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        pass
+        return self.checkDepth(root)
 
     def checkDepth(self, node):
-        pass
+        if node.left:
+            left_depth = self.checkDepth(node.left)
+        if node.right:
+            right_depth = self.checkDepth(node.right)
+        if not left_depth:
+            return right_depth + 1
+        if not right_depth:
+            return left_depth + 1
+        if left_depth > right_depth:
+            return left_depth + 1
+        else:
+            return right_depth + 1
