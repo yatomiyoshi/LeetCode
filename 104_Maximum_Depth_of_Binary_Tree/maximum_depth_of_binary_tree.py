@@ -13,10 +13,10 @@ class Solution(object):
         return self.checkDepth(root)
 
     def checkDepth(self, node):
-        if node.left:
-            left_depth = self.checkDepth(node.left)
-        if node.right:
-            right_depth = self.checkDepth(node.right)
+        if not node.left and not node.right:
+            return 1
+        left_depth = self.checkDepth(node.left) if node.left else None
+        right_depth = self.checkDepth(node.right) if node.right else None
         if not left_depth:
             return right_depth + 1
         if not right_depth:
