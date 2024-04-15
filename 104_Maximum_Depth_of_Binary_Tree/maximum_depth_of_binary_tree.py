@@ -10,6 +10,9 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        if not root:
+            return 0
+
         return self.checkDepth(root)
 
     def checkDepth(self, node):
